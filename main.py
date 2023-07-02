@@ -17,16 +17,18 @@ for param in vgg.parameters():
 def load_image(img_path, max_size=400, shape=None):
   image = Image.open(img_path).convert('RGB')
 
-  if max(image.size) > max_size:
+  if min(image.size) > max_size:
     size = max_size
   else:
-    size = max(image.size)
+    size = min(image.size)
 
   if shape is not None:
-    size = min(shape)
+    resize = transforms.Resize(shape)
+  else:
+    resize = transforms.Resize(size)
 
   in_transform = transforms.Compose([
-    transforms.Resize((size, int(1.5*size))),
+    resize,
     transforms.ToTensor(),
     transforms.Normalize((0.485, 0.456, 0.406),
                         (0.229, 0.224, 0.225))
@@ -51,6 +53,7 @@ def get_features(image, model, layers=None):
 
   return features
 
+# Used to calculate the correlation between features maps on a given layer
 def gram_matrix(tensor):
     _, d, h, w = tensor.size()
     tensor = tensor.view(d, h * w)
@@ -68,12 +71,14 @@ def im_convert(tensor):
   return image
 
 def main():
-  content_path, style_path = sys.argv[1:]
+  content_path, style_path, steps = sys.argv[1:]
+  steps = int(steps)
   content = load_image(content_path)
   style = load_image(style_path, shape=content.shape[-2:])
   content_features = get_features(content, vgg)
   style_features = get_features(style, vgg)
 
+  # we calculate the gram matrix for each layer of the style image
   style_grams = {layer: gram_matrix(style_features[layer]) for layer in style_features}
 
   target = content.clone().requires_grad_(True)
@@ -89,7 +94,6 @@ def main():
 
   show_every = 400
   optimizer = optim.Adam([target], lr=0.003)
-  steps = 10000
 
   with alive_bar(steps) as bar:
     for ii in range(1, steps+1):
