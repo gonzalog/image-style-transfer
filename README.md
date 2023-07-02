@@ -10,7 +10,9 @@ Based on [A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576
 
  cd image-style-transfer
 
- source ./bin/activate
+ python -m venv ./venv
+
+ source ./venv/bin/activate
 
  pip install -r requirements.txt
 
