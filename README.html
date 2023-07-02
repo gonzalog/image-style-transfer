@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Image Style Transfer</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="image-style-transfer">Image Style Transfer</h1>
+<p>Based on <a href="https://arxiv.org/abs/1508.06576">A Neural Algorithm of Artistic Style</a></p>
+<h1 id="run-on-linux">Run on Linux</h1>
+<pre><code class="language-bash">
+ git <span class="hljs-built_in">clone</span> https://github.com/gonzalog/image-style-transfer.git
+
+ <span class="hljs-built_in">cd</span> image-style-transfer
+
+ <span class="hljs-built_in">source</span> ./bin/activate
+
+ pip install -r requirements.txt
+
+ python main.py /path/to/your/content/image.jpg ~/Documents/GAN/01/starry-night.jpg &lt;STEPS&gt;
+</code></pre>
+
+        
+        
+    </body>
+    </html>

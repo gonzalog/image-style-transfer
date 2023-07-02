@@ -14,7 +14,7 @@ vgg.cuda()
 for param in vgg.parameters():
   param.requires_grad_(False)
 
-def load_image(img_path, max_size=400, shape=None):
+def load_image(img_path, max_size=600, shape=None):
   image = Image.open(img_path).convert('RGB')
 
   if min(image.size) > max_size:
