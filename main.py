@@ -121,6 +121,7 @@ def main():
       bar()
 
   plt.imshow(im_convert(target))
+  plt.axis('off')
   plt.show()
 
 if __name__ == '__main__':

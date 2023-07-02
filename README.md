@@ -16,3 +16,14 @@ Based on [A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576
 
  python main.py /path/to/your/content/image.jpg ~/Documents/GAN/01/starry-night.jpg 5000
 ```
+
+# Example
+
+## Content
+<img height="400" src="examples/tortoise.jpg">
+
+## Style
+<img height="400" src="examples/starry-night.jpg">
+
+## Result
+<img height="400" src="examples/starry-tortoise.png">
