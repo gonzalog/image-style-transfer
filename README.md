@@ -28,4 +28,4 @@ Based on [A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576
 <img height="400" src="examples/starry-night.jpg">
 
 ## Result
-<img height="400" width="579" style="object-fit: cover;" src="examples/starry-tortoise.png">
+<img height="400" src="examples/starry-tortoise.png">
